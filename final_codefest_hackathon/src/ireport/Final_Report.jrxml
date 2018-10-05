@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Final_Report" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="76aeba3d-db79-4819-b746-2d99a6973f70">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString>
+		<![CDATA[SELECT
+     count(product.`s_id`) AS Count,
+     sum(product.`G_product`) AS Perfect_products,
+     sum(product.`B_product`) AS Defective_products,
+     product.`Date` AS Last_Product_Date,
+     product.`Time` AS Last_Product_Time
+FROM
+     `product` product]]>
+	</queryString>
+	<field name="Count" class="java.lang.Long"/>
+	<field name="Perfect_products" class="java.math.BigDecimal"/>
+	<field name="Defective_products" class="java.math.BigDecimal"/>
+	<field name="Last_Product_Date" class="java.sql.Date"/>
+	<field name="Last_Product_Time" class="java.sql.Time"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="275" y="0" width="300" height="64" uuid="9c7c9806-2330-44cc-b705-2dc15e4f0e31"/>
+				<imageExpression><![CDATA["leaf_banner_green.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="794ed394-be4a-4daf-bc08-3ba9fca2b8b7"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Final Report]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="100" y="46" width="174" height="22" uuid="e63ddc59-c45a-4243-8b74-1be4dd55f5da"/>
+				<text><![CDATA[till now]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="8594cf41-384f-4b34-81e1-e279397783e4"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="111" height="15" uuid="73e13a88-5295-4386-8011-ac8412fbde7f"/>
+				<text><![CDATA[Total count]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="111" y="19" width="111" height="15" uuid="943987d6-e5e2-43be-bd74-c735ac593d1e"/>
+				<text><![CDATA[Perfect products]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="222" y="19" width="111" height="15" uuid="236e56d1-19c6-48cb-a8fa-be69cd83e276"/>
+				<text><![CDATA[Defective products]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="333" y="19" width="111" height="15" uuid="9a705575-a54a-4aaa-b069-25f7cfdd8486"/>
+				<text><![CDATA[Last Product Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="444" y="19" width="111" height="15" uuid="50035b19-674c-4fb7-85f1-cc418cf37918"/>
+				<text><![CDATA[Last Product Time]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="f94132c3-1f3a-41be-a1a8-39e9843bc18f"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="111" height="15" uuid="ae5e9cc8-9aae-47b5-8511-10826cad00c9"/>
+				<textFieldExpression><![CDATA[$F{Count}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="111" y="0" width="111" height="15" uuid="5772e9d3-b9d7-4822-a00a-75d766745704"/>
+				<textFieldExpression><![CDATA[$F{Perfect_products}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="222" y="0" width="111" height="15" uuid="b6002933-7732-4c1b-9ede-65347043365e"/>
+				<textFieldExpression><![CDATA[$F{Defective_products}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yy">
+				<reportElement style="Detail" x="333" y="0" width="111" height="15" uuid="eef706a9-eede-4663-b7ae-99a9c129e0aa"/>
+				<textFieldExpression><![CDATA[$F{Last_Product_Date}]]></textFieldExpression>
+			</textField>
+			<textField pattern="h.mm.ss a">
+				<reportElement style="Detail" x="444" y="0" width="111" height="15" uuid="17edcf68-33a4-4006-aaef-7edf459df29d"/>
+				<textFieldExpression><![CDATA[$F{Last_Product_Time}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="00d218c5-80a6-4867-9400-1317ec5d9753"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField pattern="yyyy/MM/dd">
+				<reportElement x="0" y="0" width="100" height="20" uuid="98ae55d2-be28-4c68-a65e-708092e8625d"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="403" y="0" width="80" height="20" uuid="33a2754f-5368-484c-b15a-ee6c06f69b28"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="483" y="0" width="40" height="20" uuid="4a37b6c9-8742-4326-b3b6-903aee503dd4"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Stage2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="73475fef-cdf5-495e-9aae-1a0323819ef4">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     production_2.`sid` AS production_2_sid,
+     production_2.`eid` AS production_2_eid,
+     production_2.`good` AS production_2_good,
+     production_2.`bad` AS production_2_bad,
+     production_2.`date` AS production_2_date,
+     production_2.`time` AS production_2_time
+FROM
+     `production_2` production_2]]>
+	</queryString>
+	<field name="production_2_sid" class="java.lang.Integer"/>
+	<field name="production_2_eid" class="java.lang.Integer"/>
+	<field name="production_2_good" class="java.lang.Integer"/>
+	<field name="production_2_bad" class="java.lang.Integer"/>
+	<field name="production_2_date" class="java.sql.Date"/>
+	<field name="production_2_time" class="java.sql.Time"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="275" y="0" width="300" height="64" uuid="3e11269c-d18d-4379-b3f0-ba986e7127c5"/>
+				<imageExpression><![CDATA["leaf_banner_green.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="7b7c350e-9477-43ce-bef1-9be2ab39e82d"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Stage 2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="100" y="46" width="174" height="22" uuid="ae737ea7-7dfd-4d14-85a4-5db3377c3eae"/>
+				<text><![CDATA[processings]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="65269f72-42e3-4e8b-8d08-b491765c67f6"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="92" height="15" uuid="ba0413ce-8b8e-4354-8a70-cf0c2b4b155e"/>
+				<text><![CDATA[Stage ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="92" y="19" width="92" height="15" uuid="b7ad8d70-a715-4636-890b-a46a2cc2ca09"/>
+				<text><![CDATA[Job ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="184" y="19" width="92" height="15" uuid="f485666e-86aa-448d-92fc-536dd54c058c"/>
+				<text><![CDATA[Perfectives]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="276" y="19" width="92" height="15" uuid="9612f276-a720-4128-93ec-ae0b1d43db0f"/>
+				<text><![CDATA[Defectives]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="368" y="19" width="92" height="15" uuid="89ad4503-b8eb-413f-9214-18780071e48e"/>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="460" y="19" width="92" height="15" uuid="3676aa25-be55-4c2b-ba45-818e37007a3a"/>
+				<text><![CDATA[Time]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="d944924c-02ac-404d-9185-4fab9be0e7c6"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="92" height="15" uuid="6f16bd5d-f5be-48f8-88c9-ea8bb376f0f6"/>
+				<textFieldExpression><![CDATA[$F{production_2_sid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="92" y="0" width="92" height="15" uuid="e3f22244-92b2-4c51-8b33-dbcf8485da49"/>
+				<textFieldExpression><![CDATA[$F{production_2_eid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="184" y="0" width="92" height="15" uuid="f2a42cd3-f71c-4291-8e9d-b811f24a7f70"/>
+				<textFieldExpression><![CDATA[$F{production_2_good}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="276" y="0" width="92" height="15" uuid="22c850cd-f6f4-4ba7-b985-bc20612d6a3b"/>
+				<textFieldExpression><![CDATA[$F{production_2_bad}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement style="Detail" x="368" y="0" width="92" height="15" uuid="1189beb0-8a84-4b23-aa15-56aec6514c8e"/>
+				<textFieldExpression><![CDATA[$F{production_2_date}]]></textFieldExpression>
+			</textField>
+			<textField pattern="h.mm a">
+				<reportElement style="Detail" x="460" y="0" width="92" height="15" uuid="cde0a2b1-24b9-4e5c-8736-c4df5aa548d7"/>
+				<textFieldExpression><![CDATA[$F{production_2_time}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="ce3b1f73-be95-4960-9ad4-4b5a018bd16e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="a27795e0-4b00-4dd2-b9e6-f76cb4381a69"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="003e5762-f5bf-4da7-b511-91748583b7b1"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="73deb111-7d9b-4d60-a333-4db625f89ca3"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
